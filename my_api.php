@@ -1,24 +1,12 @@
 <?php
 
-$choice_gender = rand(0,1);
-$probability_value = rand(0, 10) / 10;
-
-$name = $_GET["name"];
-if($choice_gender == 0){
-    $gender = "male";
-}else{
-    $gender = "female";
-}
-
-$probability = $probability_value;
-$count = rand();
-
-$array = ["name" => $name,
-        "gender" => $gender, 
-        "probability" => $probability, 
-        "count" => $count];
+$test1=$_GET["x"];
+$test2=$_GET["y"];
+$x = (int)$test1;
+$y = (int)$test2;
+$result=2 * $x + $y % 2;
+$array=[ "first_number"=>$x , "second_number"=>$y , "result"=>$result ];
 
 echo json_encode($array);
-
 
 ?>
