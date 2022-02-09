@@ -68,6 +68,7 @@ function removeSpaces() {
 function isValid() {
     let password = $("#password").val();
     var validation_result = $("#validate-result");
+    var hashed_result = $("#hashed-result");
   
     //check if input is null
     if (password == "") {
@@ -78,6 +79,7 @@ function isValid() {
       $.getJSON(`php/validate.php/?password=${password}`, function (json) {
         console.log("password is: " + json.isValid);
         console.log("hashed: "+json.hashed);
+        hashed_result.text(json.hashed);
         if(!json.isValid){
           validation_result.text("NO :(");
         }else{
