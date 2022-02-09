@@ -2,6 +2,7 @@ $("document").ready(function () {
   $("#calculate").click(calculateResult);
   $("#isPalindrome").click(isPalindrome);
   $("#remove-space").click(removeSpaces);
+  $("#is-valid").click(isValid);
 });
 
 //function to fetch x*2 + y%2 result
@@ -24,7 +25,7 @@ function calculateResult() {
   }
 }
 
-//function to palindrome result
+//function to fetch palindrome result
 function isPalindrome() {
 
     let is_palindrome = $("#Palindrome-text").val();
@@ -35,7 +36,7 @@ function isPalindrome() {
       alert("Enter text first!");
     } else {
   
-      //get json from calculator API
+      //get json from palindrome API
       $.getJSON(`php/palindrome.php/?palindrome_text=${is_palindrome}`, function (json) {
         console.log("isPalindrome: " + json.isPalindrome);
         palindrome_result.text(json.isPalindrome);
@@ -44,7 +45,7 @@ function isPalindrome() {
   }
   
 
-//function to palindrome result
+//function to fetch stripping result
 function removeSpaces() {
 
     let original_text = $("#string-space").val();
@@ -55,10 +56,28 @@ function removeSpaces() {
       alert("Enter text first!");
     } else {
   
-      //get json from calculator API
+      //get json from spaces API
       $.getJSON(`php/spaces.php/?input_text=${original_text}`, function (json) {
         console.log("stripepd text: " + json.stripped_text);
         stripped_text.text(json.stripped_text);
+      });
+    }
+  }
+
+//function to fetch validation result
+function isValid() {
+    let password = $("#password").val();
+    var validation_result = $("#validate-result");
+  
+    //check if input is null
+    if (password == "") {
+      alert("Enter a password first!");
+    } else {
+        alert("test");
+      //get json from validate API
+      $.getJSON(`php/validate.php/?password=${password}`, function (json) {
+        console.log("password is: " + json.isValid);
+        validation_result.text(json.isValid);
       });
     }
   }
