@@ -73,11 +73,16 @@ function isValid() {
     if (password == "") {
       alert("Enter a password first!");
     } else {
-        alert("test");
+      //  alert("test");
       //get json from validate API
       $.getJSON(`php/validate.php/?password=${password}`, function (json) {
         console.log("password is: " + json.isValid);
-        validation_result.text(json.isValid);
+        if(!json.isValid){
+          validation_result.text("NO :(");
+        }else{
+          validation_result.text("YES :)");
+        }
+        
       });
     }
   }
