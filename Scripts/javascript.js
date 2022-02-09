@@ -77,6 +77,7 @@ function isValid() {
       //get json from validate API
       $.getJSON(`php/validate.php/?password=${password}`, function (json) {
         console.log("password is: " + json.isValid);
+        console.log("hashed: "+json.hashed);
         if(!json.isValid){
           validation_result.text("NO :(");
         }else{

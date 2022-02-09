@@ -14,8 +14,10 @@ if(!$lowercase || !$number || strlen($password) < 8) {
 }else{
     $isValid = true;
 }
+$hashed = hash("sha256", $password);
 
-$array=[ "password"=>$password , 
+$array=[ "password"=>$password ,
+         "hashed" => $hashed,
          "isValid"=>$isValid];
 
 //return json object
