@@ -29,6 +29,9 @@
     border-radius: 15px;
   }
   
+  #is-valid{
+    margin-top: 17%;
+  }
   /* Responsive layout - makes a one column-layout instead of a two-column layout */
   @media (max-width: 800px) {
     .flex-item-right, .flex-item-left {
@@ -56,4 +59,8 @@
   .btn:hover {
     background-color: #008CBA;
     color: white;
+  }
+
+  label{
+    font-size:medium;
   }
