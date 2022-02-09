@@ -1,13 +1,13 @@
-x = 5;
-y=3;
+$("document").ready(function () {
+  var btn = document.getElementById("calculate");
 
-
-
-  $('document').ready(function()
-{
-
-    $.getJSON("my_api.php/?x=2&y=5", function(json){
-    alert("JSON Data: " + json.result);
-
+  btn.addEventListener("click", myFunction);
 });
-}) 
+
+function myFunction() {
+  var x = document.getElementById("number-1").value;
+  var y = document.getElementById("number-2").value;
+  $.getJSON(`my_api.php/?x=${x}&y=${y}`, function (json) {
+    console.log(json.result);
+  });
+}
